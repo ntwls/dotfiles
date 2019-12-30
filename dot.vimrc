@@ -340,3 +340,7 @@ endfunction
 " START vim-hashicorp-terraform
 let g:terraform_align = 1
 " END vim-hashicorp-terraform
+"
+"
+" JD - Additions
+set paste
