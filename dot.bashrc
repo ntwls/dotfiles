@@ -56,11 +56,14 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
+# Custom shell aliases
+alias longps1="PS1='[\e[01;32m\u\e[m@\e[01;36m\h\e[m] \D{%Y-%m-%d %H:%M:%S%z} \n \w \$ '" #Long shell
+alias shortps1="PS1='\u@\h:\w\$ '" #Short shell
+
 if [ "$color_prompt" = yes ]; then
-#    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ ' #Original prompt
-	PS1='[\e[01;32m\u\e[m@\e[01;36m\h\e[m] \D{%Y-%m-%d %H:%M:%S%z} \n \w \$ '
+    longps1 #See custom shell aliases above
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+    shortps1 #See custom shell aliases above
 fi
 unset color_prompt force_color_prompt
 
@@ -116,4 +119,7 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+# Add output during login
+printf "Please use \e[1;31mlongps1\e[0m for long shell and \e[1;31mshortps1\e[0m for short shell.\n\n"
 
