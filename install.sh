@@ -40,6 +40,9 @@ for DOTFILE in $(find . -maxdepth 1 -name "dot.*" -type f  -printf "%f\n" | sed 
     echo "Installing new file to  ~/${DOTFILE}..."
     cp dot${DOTFILE} ~/${DOTFILE}
 done
+
+printf "\n\nPlease type \e[1;31msource ~/.bashrc\e[0m to immediately activate new .bashrc settings.\n\n\n"
+
 }
 
 ##Execute
